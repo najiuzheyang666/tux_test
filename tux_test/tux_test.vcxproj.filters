@@ -18,12 +18,27 @@
     <ClInclude Include="pch.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="D:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\VC\Tools\MSVC\14.15.26726\include\graphics.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="tux_test.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="op.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="数据库分.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="b.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="插值.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
