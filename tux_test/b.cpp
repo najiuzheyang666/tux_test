@@ -21,47 +21,6 @@ using namespace cv;
 % ey x和亚像素坐标误差
 % way 1为最近邻插值，2为双线性插值方法
 */
-inline int Interpolate_qyw(BYTE f[], int sz[], int m, int n, float ex, float ey, char way) {
-	int gray = 0;
-	float fr1, fr2, fr3;
-	//1. 误差统一到0到1之间
-	if (ex < 0) {
-		ex = 1 + ex;
-		n--;
-	}
-	if (ey < 0) {
-		ey = 1 + ey;
-		m--;
-	}
-	if (m <= 0 || n <= 0)
-		return gray;
-
-	//2. 最邻近差值
-	if (way == 1) {
-		cout << "最邻近插值" << endl;
-		if (ex > 0.5)
-			n++;
-		if (ey > 0.5)
-			m++;
-		if (m > sz[0] || n > sz[1])
-			return gray;
-		gray = f[sz[1] * m + n];
-		return gray;
-	}
-
-	// 3.双线性插值
-
-	if (((m + 1) > sz[0]) || ((n + 1) > sz[1]))
-		return gray;
-	if (way == 2) {
-		cout << "双线性插值" << endl;
-		fr1 = (1 - ex)*float(f[sz[1] * m + n]) + ex * float(f[sz[1] * m + n + 1]);
-		fr2 = (1 - ex)*float(f[sz[1] * (m + 1) + n]) + ex * float(f[sz[1] * (m + 1) + n + 1]);
-		fr3 = (1 - ey)*fr1 + ey * fr2;
-		gray = BYTE(fr3);
-	}
-	return gray;
-}
 inline BYTE Interpolate(BYTE f[], int sz[], int m, int n, float ex, float ey, char way) {
 	BYTE gray = 0;
 	float fr1, fr2, fr3;
@@ -331,14 +290,14 @@ double scale：图像缩放因子*/
 	return 0;
 }
 
-int main()
+int main_____()
 {
 	Mat img, mat, mat_rotate_a;
 	//resize;
 	Mat src_img, dst, gray_img;
 	src_img = imread(R"(F:\C\tux_test\tux_test\gray_image_big.jpg)");
 
-	normalRoate((BYTE)src_img, 10, 10, 10, &src_img, &src_img)
+	//normalRoate((BYTE)src_img, 10, 10, 10, &src_img, &src_img)
 
 	//FastRotateImage(src_img, src_img, 30.0);
 
